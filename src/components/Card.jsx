@@ -5,9 +5,7 @@ function Card({movie}) {
     return (
         <main className="container">
             <section className="movie">
-                <div>
-                    <p>{movie.Year}</p>
-                </div>
+                <div />
 
                 <div>
                     <img src={movie.Poster !== 'N/A' ? movie.Poster : "https://via.placeholder.com/400"} alt={movie.Title} />
@@ -16,6 +14,7 @@ function Card({movie}) {
                 <div>
                     <span>{movie.Type}</span>
                     <h3>{movie.Title}</h3>
+                    <p>{movie.Year}</p>
                 </div>
             </section>
         </main>

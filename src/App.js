@@ -19,6 +19,7 @@ function App() {
     searchMovies("all")
   }, [])
 
+
   return (
     <main className="app">
       <h1>Simple Netflix clone</h1>
@@ -26,7 +27,7 @@ function App() {
 
       <section className="search">
         <input type="text"
-          placeholder="search for moview"
+          placeholder="Search for movies, like Superman for example"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -36,11 +37,9 @@ function App() {
         />
       </section>
 
-
-
       <div className="container">
         {movies.map((movie) => (
-          <Card movie={movie}/>
+          <Card movie={movie} />
         ))}
       </div>
     </main>
