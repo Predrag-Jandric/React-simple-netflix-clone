@@ -10,26 +10,19 @@ function App() {
   const [movies, setMovies] = React.useState([])
   const [searchTerm, setSearchTerm] = React.useState()
 
-  const example = {
-    "Title": "Batman v Superman: Dawn of Justice",
-    "Year": "2016",
-    "imdbID": "tt2975590",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-  }
-
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`)
     const data = await response.json()
     setMovies(data.Search);
   }
   React.useEffect(() => {
-    searchMovies("superman")
+    searchMovies("all")
   }, [])
 
   return (
     <main className="app">
-      <h1>MOvie Lnad</h1>
+      <h1>Simple Netflix clone</h1>
+      <p></p>
 
       <section className="search">
         <input type="text"
