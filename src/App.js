@@ -7,10 +7,21 @@ const API_URL = 'https://www.omdbapi.com?apikey=2bd69908'
 
 function App() {
 
+  const [movies, setMovies] = React.useState([])
+  const [searchTerm, setSearchTerm] = React.useState()
+
+  const example = {
+    "Title": "Batman v Superman: Dawn of Justice",
+    "Year": "2016",
+    "imdbID": "tt2975590",
+    "Type": "movie",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+  }
+
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`)
     const data = await response.json()
-    console.log(data.Search);
+    setMovies(data.Search);
   }
   React.useEffect(() => {
     searchMovies("superman")
@@ -23,16 +34,22 @@ function App() {
       <section className="search">
         <input type="text"
           placeholder="search for moview"
-          value="superman"
-          onChange={() => { }}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
 
         <img src={Search} alt="search"
-          onClick={() => { }}
+          onClick={() => searchMovies(searchTerm)}
         />
       </section>
 
-        <Card/>
+
+
+      <div className="container">
+        {movies.map((movie) => (
+          <Card movie={movie}/>
+        ))}
+      </div>
     </main>
   );
 }

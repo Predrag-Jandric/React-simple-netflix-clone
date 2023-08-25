@@ -1,33 +1,25 @@
 import React from 'react'
 
-function Card() {
+function Card({movie}) {
 
-    const example = {
-        "Title": "Batman v Superman: Dawn of Justice",
-        "Year": "2016",
-        "imdbID": "tt2975590",
-        "Type": "movie",
-        "Poster": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-      }
+    return (
+        <main className="container">
+            <section className="movie">
+                <div>
+                    <p>{movie.Year}</p>
+                </div>
 
-  return (
-    <section className="container">
-    <article className="movie">
-     <div>
-       <p>{example.Year}</p>
-     </div>
+                <div>
+                    <img src={movie.Poster !== 'N/A' ? movie.Poster : "https://via.placeholder.com/400"} alt={movie.Title} />
+                </div>
 
-     <div>
-       <img src={example.Poster !== 'N/A' ? example.Poster : "https://via.placeholder.com/400"} alt={example.Title} />
-     </div>
-
-     <div>
-       <span>{example.Type}</span>
-       <h3>{example.Title}</h3>
-     </div>
-    </article>
-   </section>
-  )
+                <div>
+                    <span>{movie.Type}</span>
+                    <h3>{movie.Title}</h3>
+                </div>
+            </section>
+        </main>
+    )
 }
 
 export default Card
