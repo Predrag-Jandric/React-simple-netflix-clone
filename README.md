@@ -1,6 +1,6 @@
 # 🛠 React - simple netflix clone
 
-# 🔗 [Live Preview]()
+# 🔗 [Live Preview](https://main--silly-paprenjak-485a78.netlify.app/)
 ![Design preview](./preview.gif)
 
 ## Welcome! 👋
